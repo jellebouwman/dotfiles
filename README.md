@@ -17,11 +17,22 @@ I use Omarchy as a base. There are some packages I have installed with `yay -S <
 These are `firefox-developer-edition` and `slack`.
 
 ```zsh
-yay -S firefox-developer-edition slack
+yay -S firefox-developer-edition slack keyd
 ```
 
 I have also removed some packages that I do not need. These are `spotify` and `zoom`.
 
 ```zsh
 yay -R spotify zoom
+```
+
+## Complex input configuration
+
+I like to use the capslock key for something else. I've installed `keyd` using `yay`.
+After the /etc/keyd/default.conf is moved in the right directory,
+further setup requires us to run
+
+```zsh
+sudo systemctl enable keyd
+sudo systemctl start keyd
 ```
