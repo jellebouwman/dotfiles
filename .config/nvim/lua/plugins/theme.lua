@@ -1,1 +1,0 @@
-/home/jelle/.config/omarchy/current/theme/neovim.lua
