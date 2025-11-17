@@ -1,0 +1,214 @@
+
+// LazyVim inspired Zed Keymap
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+
+[
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {}
+  },
+
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space": null,
+      "space g g": [
+        "task::Spawn",
+        { "task_name": "LazyGit", "reveal_target": "center" }
+      ]
+    }
+  },
+
+  {
+    "context": "Terminal",
+    "bindings": {
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-j": "pane::SwapItemRight",
+      "shift-k": "pane::SwapItemLeft"
+    }
+  },
+
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "space": null,
+      "space space": "command_palette::Toggle",
+
+      "space f": null,
+      "space f f": "file_finder::Toggle",
+      "space f t": "pane::DeploySearch",
+
+      "space t": "workspace::NewCenterTerminal",
+      "space /": "workspace::NewSearch",
+
+      "space c": "workspace::ToggleRightDock",
+
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-j": "pane::SwapItemRight",
+      "shift-k": "pane::SwapItemLeft",
+
+      "space e": "workspace::ToggleLeftDock",
+      "space g g": [
+        "task::Spawn",
+        { "task_name": "LazyGit", "reveal_target": "center" }
+      ]
+    }
+  },
+
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit enter"
+      ]
+    }
+  },
+
+  {
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp"
+    }
+  },
+
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "space": null,
+      "g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit enter"
+      ],
+      "q": "workspace::ToggleLeftDock"
+    }
+  },
+
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "space b": null,
+      "space b b": "tab_switcher::Toggle",
+      "space b d": "pane::CloseActiveItem",
+      "space b l": "pane::ActivateLastItem"
+    }
+  },
+
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "space s": null,
+      "space s s": "project_symbols::Toggle"
+    }
+  },
+
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "space w": null,
+      "space w v": "pane::SplitRight",
+      "space w s": "pane::SplitDown",
+      "space w q": ["pane::CloseActiveItem", { "close_pinned": false }]
+    }
+  },
+
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "space g": null,
+      "space g s": "git_panel::ToggleFocus",
+      "space g b": "git::Blame"
+    }
+  }
+]
+
+// [
+//   {
+//     "context": "Editor && vim_mode == insert",
+//     "bindings": {
+//       // "j k": "vim::NormalBefore"
+//     }
+//   },
+//   // {
+//   //   "context": "Workspace && vim_mode !== insert",
+//   //   "bindings": {
+//   //     "space": null,
+//   //     "cmd-shift-g": [
+//   //       "task::Spawn",
+//   //       { "task_name": "LazyGit", "reveal_target": "center" }
+//   //     ]
+//   //   }
+//   // },
+//   {
+//     "context": "Editor && vim_mode == normal",
+//     "bindings": {
+//       "space": null,
+//       "space g g": [
+//         "task::Spawn",
+//         { "task_name": "LazyGit", "reveal_target": "center" }
+//       ]
+//     }
+//   },
+//   {
+//     "context": "Terminal",
+//     "bindings": {
+//       "shift-h": "pane::ActivatePreviousItem",
+//       "shift-l": "pane::ActivateNextItem",
+//       "shift-j": "pane::SwapItemRight",
+//       "shift-k": "pane::SwapItemLeft"
+//     }
+//   },
+//   {
+//     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+//     "bindings": {
+//       "space": null,
+//       "space space": "command_palette::Toggle",
+//       "space f": null, // make space f a prefix
+//       "space f f": "file_finder::Toggle", // search files
+//       "space f t": "pane::DeploySearch",
+
+//       "space t": "workspace::NewCenterTerminal",
+//       "space /": "workspace::NewSearch",
+//       "shift-h": "pane::ActivatePreviousItem",
+//       "shift-l": "pane::ActivateNextItem",
+//       "shift-j": "pane::SwapItemRight",
+//       "shift-k": "pane::SwapItemLeft"
+//     }
+//   },
+//   {
+//     "context": "EmptyPane || SharedScreen",
+//     "bindings": {
+//       "space g g": [
+//         "workspace::SendKeystrokes",
+//         ": new center terminal enter lazygit enter"
+//       ]
+//     }
+//   },
+//   {
+//     "bindings": {
+//       "ctrl-h": "workspace::ActivatePaneLeft",
+//       "ctrl-l": "workspace::ActivatePaneRight",
+//       "ctrl-j": "workspace::ActivatePaneDown",
+//       "ctrl-k": "workspace::ActivatePaneUp"
+//     }
+//   },
+//   {
+//     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+//     "bindings": {
+//       "space e": "workspace::ToggleLeftDock"
+//     }
+//   },
+//   {
+//     "context": "ProjectPanel && not_editing",
+//     "bindings": {
+//       "q": "workspace::ToggleLeftDock"
+//     }
+//   }
+// ]
+
