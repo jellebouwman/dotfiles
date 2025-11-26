@@ -1,10 +1,14 @@
-
 // LazyVim inspired Zed Keymap
 //
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 
 [
+  {
+    "bindings": {
+      "ctrl-t": "terminal_panel::Toggle"
+    }
+  },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {}
@@ -22,16 +26,6 @@
   },
 
   {
-    "context": "Terminal",
-    "bindings": {
-      "shift-h": "pane::ActivatePreviousItem",
-      "shift-l": "pane::ActivateNextItem",
-      "shift-j": "pane::SwapItemRight",
-      "shift-k": "pane::SwapItemLeft"
-    }
-  },
-
-  {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "space": null,
@@ -41,7 +35,6 @@
       "space f f": "file_finder::Toggle",
       "space f t": "pane::DeploySearch",
 
-      "space t": "workspace::NewCenterTerminal",
       "space /": "workspace::NewSearch",
 
       "space c": "workspace::ToggleRightDock",
@@ -211,4 +204,3 @@
 //     }
 //   }
 // ]
-
