@@ -6,14 +6,22 @@
 [
   {
     "bindings": {
-      "ctrl-t": "terminal_panel::Toggle"
+      "ctrl-t": "terminal_panel::Toggle",
+      "ctrl-e": "workspace::ToggleLeftDock",
+      "ctrl-g": [
+        "task::Spawn",
+        { "task_name": "LazyGit", "reveal_target": "center" }
+      ]
     }
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {}
   },
-
+  {
+    "context": "Editor",
+    "bindings": { "ctrl-w": "pane::CloseActiveItem" }
+  },
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
@@ -44,21 +52,7 @@
       "shift-j": "pane::SwapItemRight",
       "shift-k": "pane::SwapItemLeft",
 
-      "space e": "workspace::ToggleLeftDock",
-      "space g g": [
-        "task::Spawn",
-        { "task_name": "LazyGit", "reveal_target": "center" }
-      ]
-    }
-  },
-
-  {
-    "context": "EmptyPane || SharedScreen",
-    "bindings": {
-      "space g g": [
-        "workspace::SendKeystrokes",
-        ": new center terminal enter lazygit enter"
-      ]
+      "space e": "workspace::ToggleLeftDock"
     }
   },
 
@@ -68,18 +62,6 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp"
-    }
-  },
-
-  {
-    "context": "ProjectPanel && not_editing",
-    "bindings": {
-      "space": null,
-      "g g": [
-        "workspace::SendKeystrokes",
-        ": new center terminal enter lazygit enter"
-      ],
-      "q": "workspace::ToggleLeftDock"
     }
   },
 
