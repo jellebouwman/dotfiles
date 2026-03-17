@@ -1,38 +1,68 @@
-# Dotfiles
+# macOS Dotfiles
 
-# Arch manual ----------
+Omarchy-inspired window management setup for macOS.
 
-## PNPM
+## Prerequisites
 
-Following [the installation guide](https://pnpm.io/installation#on-posix-systems) to install PNPM on a POSIX system.
-The config to make it available in zsh is in `.zshrc`.
+- [Homebrew](https://brew.sh)
+- [Raycast](https://raycast.com) (app launcher)
 
-## FNM
+## Installation
 
-Experimenting with fnm over nvm - install can be done through [the script provided on GitHub](https://pnpm.io/installation#on-posix-systems).
+### 1. Install Aerospace (tiling window manager)
 
-## Extra packages installed through yay
-
-I use Omarchy as a base. There are some packages I have installed with `yay -S <package-name>`.
-These are `firefox-developer-edition` and `slack`.
-
-```zsh
-yay -S firefox-developer-edition slack keyd
+```bash
+brew install --cask nikitabobko/tap/aerospace
 ```
 
-I have also removed some packages that I do not need. These are `spotify` and `zoom`.
+Grant **Accessibility permissions**: System Settings > Privacy & Security > Accessibility > Enable AeroSpace
 
-```zsh
-yay -R spotify zoom
+### 2. Symlink config
+
+```bash
+ln -sf ~/dev/dotfiles/macos/aerospace.toml ~/.aerospace.toml
 ```
 
-## Complex input configuration
+### 3. Start Aerospace
 
-I like to use the capslock key for something else. I've installed `keyd` using `yay`.
-After the /etc/keyd/default.conf is moved in the right directory,
-further setup requires us to run
-
-```zsh
-sudo systemctl enable keyd
-sudo systemctl start keyd
+```bash
+open -a AeroSpace
 ```
+
+## Keybinding Reference
+
+| Key | Action |
+|-----|--------|
+| `opt + h/j/k/l` | Focus window left/down/up/right |
+| `opt + shift + h/j/k/l` | Move window |
+| `opt + 1-5` | Switch workspace |
+| `opt + shift + 1-5` | Move window to workspace |
+| `opt + tab` | Toggle last workspace |
+| `opt + backtick` | Toggle last focused window |
+| `opt + f` | Fullscreen |
+| `opt + t` | Toggle float/tile |
+| `opt + slash` | Toggle horizontal/vertical split |
+| `opt + a` | Toggle accordion layout |
+| `opt + b` | Balance window sizes |
+| `opt + g` | Join with window below |
+| `opt + shift + g` | Join with window to right |
+| `opt + w` | Close window |
+| `opt + shift + w` | Close all but current |
+| `opt + r` | Enter resize mode |
+| `opt + shift + r` | Reload config |
+| `opt + ctrl + h/j/k/l` | Focus monitor |
+| `opt + shift + ctrl + h/j/k/l` | Move window to monitor |
+
+**Resize mode:** `h/j/k/l` to resize, `esc` or `enter` to exit
+
+## Floating Apps
+
+These apps float by default:
+- System Settings
+- Raycast
+- 1Password
+
+## Tips
+
+- **Create split layouts:** Use `opt + g` (join below) or `opt + shift + g` (join right) to nest windows
+- **Example:** For 1 window left, 2 stacked right: focus middle window, press `opt + g` to join with the one below

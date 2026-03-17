@@ -1,0 +1,161 @@
+# Aerospace config - Omarchy-style keybindings for macOS
+# Reference: https://nikitabobko.github.io/AeroSpace/guide
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations (recommended defaults)
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Mouse follows focus (like Hyprland)
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Use accordion layout for stacking (similar to Hyprland groups)
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Gaps (similar to Hyprland/Omarchy gaps)
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
+outer.top = 8
+outer.right = 8
+
+# =============================================================================
+# MAIN MODE KEYBINDINGS
+# =============================================================================
+[mode.main.binding]
+
+# -----------------------------------------------------------------------------
+# Window Focus (alt + hjkl) - like Super + Arrows in Omarchy
+# -----------------------------------------------------------------------------
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# -----------------------------------------------------------------------------
+# Move Windows (alt + shift + hjkl) - like Super + Shift + Arrows in Omarchy
+# -----------------------------------------------------------------------------
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# -----------------------------------------------------------------------------
+# Workspace Switching (alt + 1-5) - like Super + 1-5 in Omarchy
+# -----------------------------------------------------------------------------
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+
+# -----------------------------------------------------------------------------
+# Move Window to Workspace (alt + shift + 1-5) - like Super + Shift + 1-5
+# -----------------------------------------------------------------------------
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+
+# -----------------------------------------------------------------------------
+# Workspace Navigation - like Super + Tab in Omarchy
+# -----------------------------------------------------------------------------
+alt-tab = 'workspace-back-and-forth'
+alt-backtick = 'focus-back-and-forth'
+
+# -----------------------------------------------------------------------------
+# Layout Controls
+# -----------------------------------------------------------------------------
+# Fullscreen (alt + f) - like Super + F in Omarchy
+alt-f = 'fullscreen'
+
+# Toggle floating/tiling (alt + t) - like Super + T in Omarchy
+alt-t = 'layout floating tiling'
+
+# Toggle split direction (alt + slash) - like Super + J toggle in Omarchy
+alt-slash = 'layout tiles horizontal vertical'
+
+# Accordion layout (alt + a) - like window grouping in Omarchy
+alt-a = 'layout accordion horizontal vertical'
+
+# Balance window sizes (alt + b)
+alt-b = 'balance-sizes'
+
+# -----------------------------------------------------------------------------
+# Resize Mode (alt + r) - enter resize mode
+# -----------------------------------------------------------------------------
+alt-r = 'mode resize'
+
+# -----------------------------------------------------------------------------
+# Monitor Controls
+# -----------------------------------------------------------------------------
+# Move window to monitor
+alt-shift-ctrl-h = 'move-node-to-monitor left'
+alt-shift-ctrl-l = 'move-node-to-monitor right'
+alt-shift-ctrl-j = 'move-node-to-monitor down'
+alt-shift-ctrl-k = 'move-node-to-monitor up'
+
+# Focus monitor
+alt-ctrl-h = 'focus-monitor left'
+alt-ctrl-l = 'focus-monitor right'
+alt-ctrl-j = 'focus-monitor down'
+alt-ctrl-k = 'focus-monitor up'
+
+# -----------------------------------------------------------------------------
+# Join Windows (create accordion groups) - like Super + G in Omarchy
+# -----------------------------------------------------------------------------
+alt-g = 'join-with down'
+alt-shift-g = 'join-with right'
+
+# -----------------------------------------------------------------------------
+# Close Window (alt + w) - like Super + W in Omarchy
+# -----------------------------------------------------------------------------
+alt-w = 'close'
+
+# Close all windows but current
+alt-shift-w = 'close-all-windows-but-current'
+
+# -----------------------------------------------------------------------------
+# Reload config
+# -----------------------------------------------------------------------------
+alt-shift-r = 'reload-config'
+
+# =============================================================================
+# RESIZE MODE
+# =============================================================================
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+
+# Fine-grained resize with shift
+shift-h = 'resize width -10'
+shift-j = 'resize height +10'
+shift-k = 'resize height -10'
+shift-l = 'resize width +10'
+
+# Exit resize mode
+esc = 'mode main'
+enter = 'mode main'
+
+# =============================================================================
+# WINDOW RULES - Float certain apps by default
+# =============================================================================
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.raycast.macos'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'
