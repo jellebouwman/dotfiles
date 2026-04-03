@@ -43,3 +43,8 @@ alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
 
 #### End of aliases
+
+# Tmux functions (tdl, tdlm, tsl)
+source ~/.config/tmux/functions.sh
+
+eval "$(starship init zsh)"
